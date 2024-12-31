@@ -1,12 +1,12 @@
 * {
   border: 1px solid black;
-}
-
-#container .cell {
-  max-width: 100px;
-  aspect-ratio: 1/1;
+  margin: 0px;
 }
 
 #container {
   display: flex;
+  aspect-ratio: 1/1;
+  max-height: 100%;
+  max-width: 750px;
+  margin: 10px auto;
 }
