@@ -13,3 +13,5 @@ function createBlocks(blocksPerSide) {
         containerDiv.appendChild(cell);
     }
 }
+
+createBlocks(4);

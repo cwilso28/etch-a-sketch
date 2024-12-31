@@ -1,0 +1,12 @@
+* {
+  border: 1px solid black;
+}
+
+#container .cell {
+  max-width: 100px;
+  aspect-ratio: 1/1;
+}
+
+#container {
+  display: flex;
+}
