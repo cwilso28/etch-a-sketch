@@ -5,7 +5,7 @@ function createBlocks(blocksPerSide) {
     for (i = 0; i < totalBlocks; i++) {
         cell = document.createElement("div");
         cell.classList.add("cell");
-        cell.setAttribute("style", "background: white;");
+        cell.style.backgroundColor = "rgb(255 0 255 / 1.0)"
         containerDiv.appendChild(cell);
     };
 };
@@ -13,18 +13,23 @@ function createBlocks(blocksPerSide) {
 function resetGrid() {
     const cellList = document.querySelectorAll(".cell");
     for (let i = 0; i < cellList.length; i++) {
-        cellList[i].setAttribute("style", "background: white;");
+        cellList[i].style.backgroundColor = "rgb(255 255 0 / 1.0)"
     };
 };
 
 createBlocks(4);
 
 let cellDiv = document.querySelector(".cell");
+
 let containerDiv = document.querySelector("#container");
 
-containerDiv.addEventListener("mouseenter", function (e) {
+containerDiv.addEventListener("mouseover", function (e) {
     if (e.target && e.target.matches(".cell")) {
         const enteredCell = e.target;
-        enteredCell.setAttribute("style", "background: black;");
+        // cellOpacity = document.getComputedStyle(enteredCell).getPropertyValue("opacity");
+        // cellOpacity += 0.1;
+        enteredCell.style.backgroundColor = "rgb(0 0 0 / 1.0)"
+        // enteredCell.style.backgroundColor = "black";
+        // enteredCell.style.opacity = cellOpacity;
     };
 });
