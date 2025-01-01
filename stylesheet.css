@@ -13,7 +13,8 @@
 }
 
 .cell {
-  flex-basis: 185.5px;
+  box-sizing: border-box;
+  flex-basis: 25%;
   flex-grow: 0;
   aspect-ratio: 1/1;
   max-height: 100%;
