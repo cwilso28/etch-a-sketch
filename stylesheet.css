@@ -10,7 +10,8 @@
 
 button {
   display: flex;
-  margin: 10px auto
+  margin: 10px auto;
+  font-size: 18px;
 }
 
 #container {
@@ -30,7 +31,3 @@ button {
   max-height: 100%;
   max-width: 100%;
 }
-
-/* .cell:hover {
-  background-color: black;
-} */
