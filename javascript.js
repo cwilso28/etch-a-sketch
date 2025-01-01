@@ -32,6 +32,14 @@ function randomRGB() {
     return rgbValue;
 };
 
+// INIT function to ask user for the number of cells per size, limit 100
+    // Create a prompt for user input
+        // Check if the input is a number
+        // If it isn't display a message and default to 4 cells per side
+    // Check the input to ensure it is less than 100
+        // If the value is over 100 default to 100
+    // Delete all of the border elements and children
+    // Rebuild all border elements and children with user specified grid size
 createBlocks(4);
 
 let cellDiv = document.querySelector(".cell");
