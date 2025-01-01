@@ -4,25 +4,33 @@ function createBlocks(blocksPerSide) {
     let containerDiv = document.querySelector("#container");
     let flexBasisSetting = 100 / blocksPerSide;
     for (i = 0; i < totalBlocks; i++) {
+        cellBorder = document.createElement("div");
+        cellBorder.classList.add("border");
+        cellBorder.style.flexBasis = flexBasisSetting + "%";
+        cellBorder.style.backgroundColor = "rgb(255 255 255 / 0.0)";
+
         cell = document.createElement("div");
         cell.classList.add("cell");
-        cell.style.flexBasis = flexBasisSetting + "%";
-        cell.style.backgroundColor = "rgb(255 0 255)"
-        cell.style.opacity = "0.1"
-        containerDiv.appendChild(cell);
+        cell.style.backgroundColor = "rgb(" + randomRGB() + " " + randomRGB() + " " + randomRGB() + ")"
+        cell.style.opacity = "0.0"
+        cellBorder.appendChild(cell)
+        containerDiv.appendChild(cellBorder);
     };
 };
 
 function resetGrid() {
     const cellList = document.querySelectorAll(".cell");
     for (let i = 0; i < cellList.length; i++) {
-        cellList[i].style.backgroundColor = "rgb(255 255 0)"
+        cellList[i].style.backgroundColor = "rgb(" + randomRGB() + " " + randomRGB() + " " + randomRGB() + ")"
+        cellList[i].style.opacity = "0.0"
     };
 };
 
-function parseRGBA(rgbaValues) {
-
-}
+function randomRGB() {
+    let rgbValue = Math.floor(Math.random() * (255 + 1));
+    console.log(rgbValue);
+    return rgbValue;
+};
 
 createBlocks(4);
 
@@ -35,11 +43,8 @@ containerDiv.addEventListener("mouseover", function (e) {
         const enteredCell = e.target;
         cellBackground = enteredCell.style.opacity;
         console.log(cellBackground);
-        // cellOpacity = document.getComputedStyle(enteredCell).getPropertyValue("opacity");
-        // cellOpacity += 0.1;
-        enteredCell.style.backgroundColor = "rgb(0 0 0)"
-        enteredCell.style.opacity = String(Number(cellBackground) + 0.1);
-        // enteredCell.style.backgroundColor = "black";
-        // enteredCell.style.opacity = cellOpacity;
+        if (cellBackground < 1.0) {
+            enteredCell.style.opacity = String(Number(cellBackground) + 0.1);
+        };
     };
 });
