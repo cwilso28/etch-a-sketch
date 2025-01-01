@@ -9,4 +9,13 @@
   max-height: 100%;
   max-width: 750px;
   margin: 10px auto;
+  flex-wrap: wrap;
+}
+
+.cell {
+  flex-basis: 25%;
+  flex-grow: 0;
+  aspect-ratio: 1/1;
+  max-height: 100%;
+  max-width: 100%;
 }

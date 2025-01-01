@@ -14,4 +14,4 @@ function createBlocks(blocksPerSide) {
     }
 }
 
-// createBlocks(4);
+createBlocks(4);
