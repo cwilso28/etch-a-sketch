@@ -24,6 +24,7 @@ function resetGrid() {
         cellList[i].style.backgroundColor = "rgb(" + randomRGB() + " " + randomRGB() + " " + randomRGB() + ")"
         cellList[i].style.opacity = "0.0"
     };
+    getGridDims()
 };
 
 function randomRGB() {
@@ -40,6 +41,26 @@ function randomRGB() {
         // If the value is over 100 default to 100
     // Delete all of the border elements and children
     // Rebuild all border elements and children with user specified grid size
+function getGridDims() {
+    let userInput = prompt("Number of cells per side (1-100): ", "4");
+    let text;
+    let cellsPerSide;
+    if (isNaN(Number(userInput))) {
+        text = "You didn't enter a number! Defaulting to 4 cells per side.";
+        alert(text);
+        cellsPerSide = 4;
+    }
+    else if (Number(userInput) < 1 || Number(userInput) > 100) {
+        text = "Inputs must be between 1 and 100. Defaulting to 4 cells per side.";
+        alert(text);
+        cellsPerSide = 4;
+    }
+    else {
+        cellsPerSide = Number(userInput);
+    };
+    return cellsPerSide;
+};
+
 createBlocks(4);
 
 let cellDiv = document.querySelector(".cell");
@@ -50,7 +71,6 @@ containerDiv.addEventListener("mouseover", function (e) {
     if (e.target && e.target.matches(".cell")) {
         const enteredCell = e.target;
         cellBackground = enteredCell.style.opacity;
-        console.log(cellBackground);
         if (cellBackground < 1.0) {
             enteredCell.style.opacity = String(Number(cellBackground) + 0.1);
         };
