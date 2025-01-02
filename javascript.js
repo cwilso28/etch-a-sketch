@@ -61,6 +61,15 @@ function getGridDims() {
     return cellsPerSide;
 };
 
+function deleteGrid() {
+    let element = document.querySelector("#container");
+    let child = element.lastElementChild;
+    while(child) {
+        element.removeChild(child);
+        child = element.lastElementChild;
+    }
+}
+
 createBlocks(4);
 
 let cellDiv = document.querySelector(".cell");
