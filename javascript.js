@@ -19,12 +19,9 @@ function createBlocks(blocksPerSide) {
 };
 
 function resetGrid() {
-    const cellList = document.querySelectorAll(".cell");
-    for (let i = 0; i < cellList.length; i++) {
-        cellList[i].style.backgroundColor = "rgb(" + randomRGB() + " " + randomRGB() + " " + randomRGB() + ")"
-        cellList[i].style.opacity = "0.0"
-    };
-    getGridDims()
+    cellsPerSide = getGridDims();
+    deleteGrid();
+    createBlocks(cellsPerSide);
 };
 
 function randomRGB() {
@@ -33,14 +30,6 @@ function randomRGB() {
     return rgbValue;
 };
 
-// INIT function to ask user for the number of cells per size, limit 100
-    // Create a prompt for user input
-        // Check if the input is a number
-        // If it isn't display a message and default to 4 cells per side
-    // Check the input to ensure it is less than 100
-        // If the value is over 100 default to 100
-    // Delete all of the border elements and children
-    // Rebuild all border elements and children with user specified grid size
 function getGridDims() {
     let userInput = prompt("Number of cells per side (1-100): ", "4");
     let text;
